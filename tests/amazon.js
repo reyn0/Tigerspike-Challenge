@@ -12,10 +12,10 @@ module.exports = {
         .waitForElementVisible('@kindleLink')
         .click('@kindleLink')
         .assert.title('Kindle E-reader – Amazon Official Site')
-        //.addToCart()
+        .addToCart()
         .goToCart()
-        //.proceedToPayment() - still not working
-        //.clearCart() - still not working
+        .proceedToPayment() // still not working properly with selecting address
+        .clearCart() // still not working with the delete button
       client.end();
     },
     'Amazon Kindle From Search': function (client) {
