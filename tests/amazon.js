@@ -1,7 +1,10 @@
 module.exports = {
-    'Amazon Electricals': function (client) {
+    'Amazon Kindle': function (client) {
+      var amazonLogin = client.page.amazonLogin();
+      amazonLogin.navigate()
+        .login();
+
       var amazon = client.page.amazon();
-  
       amazon.navigate()
         .assert.title('Amazon.com.au: Shop online for Electronics, Apparel, Toys, Books, DVDs & more')
         .waitForElementVisible('@allCategoryLink', 1000)
@@ -16,7 +19,8 @@ module.exports = {
         .click('@goToCartButton')
         .waitForElementVisible('@proceedToCheckoutButton', 1000)
         .click('@proceedToCheckoutButton')
-        
+        .navigate()
+        .clearCart()
       client.end();
     }
   };

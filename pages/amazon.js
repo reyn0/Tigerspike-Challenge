@@ -1,9 +1,12 @@
 var searchCommands = {
-    submit: function() {
-      this.waitForElementVisible('@submitButton', 3000)
-        .click('@submitButton')
-        .api.pause(1000);
-      return this; // Return page object for chaining
+    clearCart: function() {
+      this.waitForElementVisible('@goToCartButton', 3000)
+        .click('@goToCartButton')
+        .api.pause(1000)
+        .waitForElementVisible('@deleteButton')
+        .click('@deleteButton')
+        .assert.containsText('@body', 'Your Shopping Cart is empty.')
+      return this;
     }
   };
   
@@ -16,7 +19,8 @@ var searchCommands = {
       kindleLink: { selector: "//a[text()='Kindle']", locateStrategy: 'xpath' },
       addToCartButton: { selector: 'input[id=add-to-cart-button]'},
       goToCartButton: {selector: 'a[id=nav-cart]'},
-      proceedToCheckoutButton: { selector: 'input[name=proceedToCheckout] '}
+      proceedToCheckoutButton: { selector: 'input[name=proceedToCheckout]'},
+      deleteButton: {selector: 'input[type=submit][name=submit.delete*]', locateStrategy: 'xpath'}
     }
   };
   
