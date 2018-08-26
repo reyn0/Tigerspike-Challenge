@@ -6,9 +6,10 @@ var geckodriver = require('geckodriver');
 var config = {
   src_folders: [
     // Folders with tests
-    'tests/features'
+    'tests'
   ],
-  output_folder: 'reports', // Where to output the test reports
+  output_folder: 'reports',
+  page_objects_path : "pages", // Where to output the test reports
   selenium: {
     // Information for selenium, such as the location of the drivers ect.
     start_process: true,
