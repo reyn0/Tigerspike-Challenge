@@ -1,13 +1,17 @@
 {
   "name": "reynaldi",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tiger Spike Challenge",
   "main": "nightwatch.conf.js",
   "engines": {
     "node": ">= 6.0.0"
   },
   "scripts": {
-    "nightwatch": "nightwatch -c nightwatch.conf.js -e chrome"
+    "nightwatch": "nightwatch -c nightwatch.conf.js -e chrome,firefox,safari",
+    "nightwatchChrome": "nightwatch -c nightwatch.conf.js -e chrome",
+    "nightwatchChromeHeadless": "nightwatch -c nightwatch.conf.js -e chromeHeadless",
+    "nightwatchFirefox": "nightwatch -c nightwatch.conf.js -e firefox",
+    "nightwatchSafari": "nightwatch -c nightwatch.conf.js -e safari"
   },
   "dependencies": {
     "chromedriver": "^2.41.0",

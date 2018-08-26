@@ -32,7 +32,7 @@ var config = {
       },
       globals: {
         // How long to wait (in milliseconds) before the test times out
-        waitForConditionTimeout: 5000
+        waitForConditionTimeout: 1000
       },
       desiredCapabilities: {
         // The default test
@@ -49,6 +49,17 @@ var config = {
         javascriptEnabled: true,
         acceptSslCerts: true,
         nativeEvents: true
+      }
+    },
+    chromeHeadless: {
+      desiredCapabilities: {
+        browserName: 'chrome',
+        javascriptEnabled: true,
+        acceptSslCerts: true,
+        nativeEvents: true,
+        chromeOptions: {
+          args: ['headless']
+        }
       }
     },
     firefox: {
