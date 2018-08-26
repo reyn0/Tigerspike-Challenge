@@ -11,7 +11,9 @@ module.exports = {
   url: 'http://www.ebay.com.au',
   commands: [searchCommands],
   elements: {
+    body: 'body',
     searchBar: { selector: 'input[name=_nkw]' },
-    submitButton: { selector: 'input[id=gh-btn]' }
+    submitButton: { selector: 'input[id=gh-btn]' },
+    electricalsLink: { selector: '//a[text()="Electronics"]', locateStrategy: 'xpath' }
   }
 };

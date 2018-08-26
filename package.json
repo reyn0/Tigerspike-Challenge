@@ -7,7 +7,7 @@
     "node": ">= 6.0.0"
   },
   "scripts": {
-    "nightwatch": "nightwatch -c nightwatch.conf.js -e chrome,firefox"
+    "nightwatch": "nightwatch -c nightwatch.conf.js -e chrome"
   },
   "dependencies": {
     "chromedriver": "^2.41.0",
