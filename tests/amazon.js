@@ -47,7 +47,7 @@ module.exports = {
           .assert.title('Amazon.com.au: Shop online for Electronics, Apparel, Toys, Books, DVDs & more')
           .selectCategory("PS4")
           .assert.title('Amazon.com.au: PlayStation 4: Video Games: Accessories, Games, Digital Games, Interactive Gaming Figures & More')
-          .selectItem("Marvel's Spider-Man (PlayStation 4)")
+          .selectItem("Marvel's Spider-Man (PlayStation 4)") // Still not working selecting the item
           .addToCart()
           .goToCart()
           .proceedToPayment() // still not working properly with selecting address
@@ -70,7 +70,7 @@ module.exports = {
         amazon.navigate()
           .search("Kindle")
           .assert.title('Amazon.com.au: Kindle')
-          .selectItem("Kindle E-Reader, 6\" Glare-Free Touchscreen Display, Wi-Fi (Black)")
+          .selectItem("Kindle E-Reader, 6\" Glare-Free Touchscreen Display, Wi-Fi (Black)") // Still not working selecting the item
           .addToCart()
           .goToCart()
           .proceedToPayment() // still not working
