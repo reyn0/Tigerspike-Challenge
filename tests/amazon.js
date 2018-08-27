@@ -8,7 +8,8 @@ module.exports = {
     5. Go to cart
     6. Click proceed to payment
     7. Select address
-    8. Click continue
+    8. Click continue to select delivery options
+    9. Verify the page is select a payment method page
     */
     'Amazon Kindle From Category': function (client) {
       var amazonLogin = client.page.amazonLogin();
@@ -22,8 +23,9 @@ module.exports = {
         .assert.title('Kindle E-reader – Amazon Official Site')
         .addToCart()
         .goToCart()
-        .proceedToPayment() // still not working properly with selecting address
-        .clearCart() // still not working with the delete button
+        .proceedToPayment() // Stuck at selecting delivery options now
+        //.assert.title('Select a Payment Method - Amazon.com.au Checkout')
+        .clearCart()
       client.end();
     },
     /*

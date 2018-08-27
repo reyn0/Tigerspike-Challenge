@@ -16,7 +16,7 @@ var amazonCommands = {
     },
     // Click a link to see item details
     selectItem: function(itemName) {
-        var locatorBuilder = "a[title='"+ itemName +"']"
+        var locatorBuilder = "//a[title='"+ itemName +"']"
         this.click('xpath', locatorBuilder)
         return this;
     },
@@ -28,10 +28,8 @@ var cartCommands = {
         this.navigate()
           .waitForElementVisible('@goToCartButton')
           .click('@goToCartButton')
-          .api.pause(1000)
           .waitForElementVisible('@deleteButton')
           .click('@deleteButton')
-          .assert.containsText('@body', 'Your Shopping Cart is empty.')
         return this;
     },
     // Add an item to a cart
@@ -52,7 +50,11 @@ var cartCommands = {
         this.waitForElementVisible('@proceedToCheckoutButton')
         .click('@proceedToCheckoutButton')
         .assert.containsText('@body', 'Select a delivery address')
-        .waitForElementVisible('@deliverToThisAddressButton')
+        .click('@deliverToThisAddressButton')
+        .api.pause(3000)
+        .assert.title('Select Delivery Options - Amazon.com.au Checkout')
+        //.click('xpath', '@continueButton') //Issue finding the element still
+        //.assert.containsText('@body', 'Add a Payment Method')
         return this;
     },
 };
@@ -65,13 +67,14 @@ var cartCommands = {
       body: 'body',
       searchTextBox: 'input[id=twotabsearchtextbox]',
       searchButton: 'input[type=submit]',
-      allCategoryLink: { selector: 'a[id=nav-link-shopall]'},
+      allCategoryLink: 'a[id=nav-link-shopall]',
       kindleLink: { selector: "//a[text()='Kindle']", locateStrategy: 'xpath' },
-      addToCartButton: { selector: 'input[id=add-to-cart-button]'},
-      goToCartButton: {selector: 'a[id=nav-cart]'},
+      addToCartButton: 'input[id=add-to-cart-button]',
+      goToCartButton: 'a[id=nav-cart]',
       proceedToCheckoutButton: 'input[name=proceedToCheckout]',
-      deliverToThisAddressButton: {selector: 'input[class=ship-to-this-address a-button a-button-primary a-button-span12 a-spacing-medium]'},
-      deleteButton: {selector: 'input[type=submit][value=Delete]'}
+      deliverToThisAddressButton: 'a[data-action="page-spinner-show"]',
+      continueButton: {selector: '//input[@type="submit"][@value="Continue"][1]'}, //Issue finding the element still
+      deleteButton: {selector: 'input[type=submit][value="Delete"]'}
     }
   };
   

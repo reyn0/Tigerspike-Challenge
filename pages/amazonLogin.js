@@ -1,7 +1,7 @@
 var loginCommands = {
     // Login as user. Currently hardcoded and need to extract it out
     login: function() {
-      this.waitForElementVisible('@yourAccountLink', 1000)
+      this.waitForElementVisible('@yourAccountLink')
         .click('@yourAccountLink')
         .setValue('@emailTextBox', 'reynaldi.hadianto+amazon@gmail.com')
         .click('@continueButton')
