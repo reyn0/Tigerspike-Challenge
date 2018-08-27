@@ -1,4 +1,5 @@
 var loginCommands = {
+    // Login as user. Currently hardcoded and need to extract it out
     login: function() {
       this.waitForElementVisible('@yourAccountLink', 1000)
         .click('@yourAccountLink')

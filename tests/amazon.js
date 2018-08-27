@@ -1,4 +1,15 @@
 module.exports = {
+    /*
+    Test case to select Kindle from Category page
+    1. Login as a user
+    2. Click on the Category link
+    3. Select the Category
+    4. Add the item to cart
+    5. Go to cart
+    6. Click proceed to payment
+    7. Select address
+    8. Click continue
+    */
     'Amazon Kindle From Category': function (client) {
       var amazonLogin = client.page.amazonLogin();
       amazonLogin.navigate()
@@ -7,10 +18,7 @@ module.exports = {
       var amazon = client.page.amazon();
       amazon.navigate()
         .assert.title('Amazon.com.au: Shop online for Electronics, Apparel, Toys, Books, DVDs & more')
-        .waitForElementVisible('@allCategoryLink')
-        .click('@allCategoryLink')
-        .waitForElementVisible('@kindleLink')
-        .click('@kindleLink')
+        .selectCategory("Kindle")
         .assert.title('Kindle E-reader – Amazon Official Site')
         .addToCart()
         .goToCart()
@@ -18,6 +26,12 @@ module.exports = {
         .clearCart() // still not working with the delete button
       client.end();
     },
+    /*
+    Test case to select Kindle from Search result
+    1. Login as a user
+    2. Search Kindle from the search bar
+    3. Click Search
+    */
     'Amazon Kindle From Search': function (client) {
         var amazonLogin = client.page.amazonLogin();
         amazonLogin.navigate()
