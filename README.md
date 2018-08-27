@@ -25,7 +25,8 @@ To run the test, run any of these commands in the terminal:
 - npm run nightwatchFirefox
 - npm run nightwatchSafari
 
-The first one (npm run nightwatch) will run the tests in parallel for all the available browsers: chrome, firefox, and safari
+The first one (npm run nightwatch) will run the tests in parallel for all the available browsers: chrome, firefox, and safari.
 
-Safari is having a bit of problem starting up the selenium-server
-Microsoft edge browser support will be added in the future
+Safari is having a bit of problem starting up the selenium-server.
+
+Microsoft edge browser support will be added in the future.

@@ -13,8 +13,15 @@ var amazonCommands = {
         .click('@allCategoryLink')
         .click('xpath',locatorBuilder)
         return this;
-    }
+    },
+    // Click a link to see item details
+    selectItem: function(itemName) {
+        var locatorBuilder = "a[title='"+ itemName +"']"
+        this.click('xpath', locatorBuilder)
+        return this;
+    },
 };
+
 var cartCommands = {
     // Clear an item from a cart
     clearCart: function() {
